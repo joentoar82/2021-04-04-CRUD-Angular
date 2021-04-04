@@ -1,0 +1,59 @@
+<div class="container">
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-4">
+            <form #listarReqForm="ngForm" (ngSubmit)="listar()">
+                <div class="mb-3 mt-5">
+                    <label for="listarPorReq" class="form-label">Buscar por requerimiento</label>
+                    <select class="form-control" name="listarPorReq" id="listarPorReq" #listarPorReq="ngModel" 
+                    [(ngModel)]="buscarReq">
+                        <option>Costo por diseño (planos y renders)</option>
+                        <option>Costo por imagenes renders</option>
+                        <option>Costo por recorrido 3D</option>
+                        <option>Costo por ejecución de proyecto</option>
+                        <option>Costo por desarrollo total de proyecto (planos, renders y presupuesto)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row  mt-5">
+        <div class="col">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center"></th>
+                        <th scope="col" class="text-center">Nombre</th>
+                        <th scope="col" class="text-center">Apellido</th>
+                        <th scope="col" class="text-center">Código Acceso</th>
+                        <th scope="col" class="text-center">País</th>
+                        <th scope="col" class="text-center">Ciudad</th>
+                        <th scope="col" class="text-center">email</th>
+                        <th scope="col" class="text-center">N° de Contacto</th>
+                        <th scope="col" class="text-center">Requerimiento</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuariosEncontrados">
+                        <th scope="row">1</th>
+                        <td class="text-center tamanoFuente">{{usuario.firstName}}</td>
+                        <td class="text-center tamanoFuente">{{usuario.lastName}}</td>
+                        <td class="text-center tamanoFuente">{{usuario.keyCode}}</td>
+                        <td class="text-center tamanoFuente">{{usuario.country}}</td>
+                        <td class="text-center tamanoFuente">{{usuario.city}}</td>
+                        <td class="text-center tamanoFuente">{{usuario.email}}</td>
+                        <td class="text-center tamanoFuente">{{usuario.contact}}</td>
+                        <td class="text-center tamanoFuente">{{usuario.request}}</td>
+                        <td> <button class="btn btn-success" [routerLink]="['/actualizar']" 
+                            (click)="guardarUsuario(usuario)">Actualizar</button> </td>
+                        <td> <button class="btn btn-danger" (click)="eliminar(usuario._id)">Eliminar</button> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+
+
+<div class="container">
+  <h1 class="text-center mt-3">Registro de Usuario</h1>
+  <div class="row d-flex justify-content-center mt-3">
+    <div class="col-4">
+
+      <form #registrarUsuarioForm="ngForm" (ngSubmit)="registrar()">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="firstName" name="firstName" 
+          #firstName="ngModel" [(ngModel)]="user.firstName">
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="lastName" name="lastName"
+          #lastName="ngModel" [(ngModel)]="user.lastName">
+        </div>
+        <div class="mb-3">
+          <label for="keyCode" class="form-label">Clave Acceso</label>
+          <input type="number" class="form-control" id="keyCode" name="keyCode"
+          #keyCode="ngModel" [(ngModel)]="user.keyCode">
+        </div>
+        <div class="mb-3">
+          <label for="country" class="form-label">País</label>
+          <input type="text" class="form-control" id="country" name="country"
+          #country="ngModel" [(ngModel)]="user.country">
+        </div>
+        <div class="mb-3">
+          <label for="city" class="form-label">Ciudad</label>
+          <input type="text" class="form-control" id="city" name="city"
+          #country="ngModel" [(ngModel)]="user.city">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">e-mail</label>
+          <input type="email" class="form-control" id="email" name="email"
+          #email="ngModel" [(ngModel)]="user.email">
+        </div>
+        <div class="mb-3">
+          <label for="contact" class="form-label">Número de Contacto</label>
+          <input type="number" class="form-control" id="contact" name="contact"
+          #contact="ngModel" [(ngModel)]="user.contact">
+        </div>
+
+        <div class="mb-3">
+          <label for="request" class="form-label">Requerimiento</label>
+          <select class="form-control" name="request" id="request" #request="ngModel" [(ngModel)]="user.request">
+              <option>Costo por diseño (planos y renders)</option>
+              <option>Costo por imagenes renders</option>
+              <option>Costo por recorrido 3D</option>
+              <option>Costo por ejecución de proyecto</option>
+              <option>Costo por desarrollo total de proyecto (planos, renders y presupuesto)</option>
+          </select>
+      </div>
+
+        <button type="submit" class="btn btn-primary">Confirmar</button>
+      </form>
+
+    </div>
+  </div>
+</div>
